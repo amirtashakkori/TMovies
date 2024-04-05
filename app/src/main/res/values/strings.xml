@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">TMovies</string>
+
+    //HomePage
+    <string name="home_page_header">What would you like to search?</string>
+    <string name="genre_page_header">What genre are you looking for?</string>
+    <string name="search">Search</string>
+
+    //ProfilePage
+    <string name="wish_list">Wish list</string>
+    <string name="watched_list">Watched list</string>
+    <string name="log_out">Log out</string>
+
+    //Sign up
+    <string name="create_account">Create an account</string>
+    <string name="create_account_general_hint">Enter your name, email and password</string>
+    <string name="name_hint">Name</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="reenter_password_hint">ReEnter password</string>
+    <string name="account_exists">already have an account? </string>
+    <string name="account_exists_login">Log in</string>
+    <string name="signup_button">Sign up</string>
+
+    //Log in
+    <string name="enter_account">Enter to your account</string>
+    <string name="enter_account_general_hint">Enter your email and password</string>
+    <string name="account_creates">don’t have an account?  </string>
+    <string name="account_exists_signup">Sign up</string>
+    <string name="login_button">Log in</string>
+
+    //MoviePage
+    <string name="votes">Votes</string>
+    <string name="year">Year</string>
+    <string name="directors">Votes</string>
+    <string name="writers">Writer</string>
+    <string name="actores">Actores</string>
+    <string name="awards">Awards</string>
+    <string name="released">Released</string>
+    <string name="screen_shots">ScreenShots</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

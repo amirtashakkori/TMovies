@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:fillViewport="true"
+    tools:context=".Fragment.GenreFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="72dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="What genres are you looking for?"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginRight="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/white"
+            android:lineSpacingExtra="8dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/genreRv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
