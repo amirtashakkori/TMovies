@@ -15,6 +15,7 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tmovies.Api.ApiService;
 import com.example.tmovies.Models.MovieDatails;
@@ -28,22 +29,21 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MovieInfoActivity extends AppCompatActivity {
 
-    ImageView backBtn , moreBtn , movieImg;
+    ImageView backBtn ,  movieImg;
     TextView movieTv , rateTv , genresTv , reviewTv , txt_screenShots;
     TextView yearTv , directorTv , writerTv , actorsTv , awardsTv , releasedDateTv;
     RecyclerView screenShotsRv;
     NestedScrollView nested;
     LinearLayout anim_layout;
 
-
     ApiService apiService;
+    Disposable disposable;
 
     public void cast(){
         nested = findViewById(R.id.nested);
         anim_layout = findViewById(R.id.anim_layout);
 
         backBtn = findViewById(R.id.backBtn);
-        moreBtn = findViewById(R.id.moreBtn);
         movieImg = findViewById(R.id.movieImg);
 
         movieTv = findViewById(R.id.movieTv);
@@ -73,7 +73,7 @@ public class MovieInfoActivity extends AppCompatActivity {
         apiService.getMovieDetails(movieId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new SingleObserver<MovieDatails>() {
             @Override
             public void onSubscribe(Disposable d) {
-
+                disposable = d;
             }
 
             @Override
@@ -105,18 +105,11 @@ public class MovieInfoActivity extends AppCompatActivity {
                     screenShotsRv.setVisibility(View.GONE);
                     txt_screenShots.setVisibility(View.GONE);
                 }
-
-                movieImg.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        showImageDialog(movieDatails.getPoster());
-                    }
-                });
             }
 
             @Override
             public void onError(Throwable e) {
-
+                Toast.makeText(MovieInfoActivity.this, "An unknown error has occurred!", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -129,17 +122,10 @@ public class MovieInfoActivity extends AppCompatActivity {
 
     }
 
-    public void showImageDialog(String poster){
-        Dialog dialog = new Dialog(MovieInfoActivity.this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.item_image_dialog);
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-        ImageView movieImg = dialog.findViewById(R.id.movieImg);
-        Picasso.get().load(poster).into(movieImg);
-
-        dialog.show();
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (disposable != null)
+            disposable.dispose();
     }
-
 }

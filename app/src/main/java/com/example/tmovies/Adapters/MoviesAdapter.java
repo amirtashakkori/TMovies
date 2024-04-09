@@ -79,6 +79,5 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.item> {
 
     public interface itemClickListener{
         public void itemClicked(long movie_id);
-        public void itemLongClicked(Movie movie);
     }
 }

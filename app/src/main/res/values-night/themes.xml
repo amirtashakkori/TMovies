@@ -1,7 +1,54 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.TMovies" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Theme.TMovies" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/darkGray</item>
+        <item name="android:windowBackground">@color/darkGray</item>
+        <item name="colorOnPrimary">@color/gray</item>
+        <item name="colorSecondary">@color/yellow</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorOnSurface">@color/dModeGray</item>
+        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="bottomNavigationStyle">@style/MyBottomNavigationView</item>
     </style>
+
+    <style name="MyBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@color/bottom_navigation_item_color</item>
+        <item name="itemTextColor">@color/bottom_navigation_item_color</item>
+        <item name="itemRippleColor">@color/bottom_navigation_ripple_color</item>
+        <item name="itemTextAppearanceActive">@style/ActiveItemBottomNavigationTextAppearence</item>
+    </style>
+
+    <style name="ActiveItemBottomNavigationTextAppearence" parent="TextAppearance.MyTheme.Caption">
+        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+    </style>
+
+    <style name="MenuItemStyle" parent="Widget.AppCompat.PopupMenu">
+        <item name="fontFamily">?attr/textAppearanceBody1</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Theme.TMovies.FullListActivity" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="SpinnerTheme" parent="Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:popupBackground">@drawable/bg_spinner</item>
+        <item name="android:textAlignment">textStart</item>
+    </style>
+
+    <style name="tabLayoutText" parent="TextAppearance.Design.Tab">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="selectedTabLayoutText" parent="TextAppearance.Design.Tab">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
 </resources>

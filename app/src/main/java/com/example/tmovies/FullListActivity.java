@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.tmovies.Api.ApiService;
 import com.example.tmovies.Adapters.GenresAdapter;
@@ -29,7 +31,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class FullListActivity extends AppCompatActivity implements MoviesAdapter.itemClickListener , GenresAdapter.itemClickListener{
+public class FullListActivity extends AppCompatActivity implements MoviesAdapter.itemClickListener{
 
     RecyclerView Rv;
     Spinner movieRangeSpinner;
@@ -114,7 +116,7 @@ public class FullListActivity extends AppCompatActivity implements MoviesAdapter
 
             @Override
             public void onError(Throwable e) {
-
+                Toast.makeText(FullListActivity.this, "An unknown error has occurred!", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -127,12 +129,9 @@ public class FullListActivity extends AppCompatActivity implements MoviesAdapter
     }
 
     @Override
-    public void itemLongClicked(Genre genre) {
-
-    }
-
-    @Override
-    public void itemLongClicked(Movie movie) {
-
+    protected void onDestroy() {
+        super.onDestroy();
+        if (movie != null)
+            movie.dispose();
     }
 }

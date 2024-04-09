@@ -35,10 +35,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="DarkKnight 2006"
-            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             android:maxLines="2"
+            android:textColor="?colorOnPrimary"
             android:lineSpacingExtra="8dp"
             android:ellipsize="end"
             android:fontFamily="@font/montserrat_bold"/>
@@ -49,9 +49,9 @@
             android:layout_height="wrap_content"
             android:text="Crime, Drama"
             android:layout_marginTop="16dp"
-            android:textColor="@color/white"
             android:maxLines="1"
-            android:textSize="13sp"/>
+            android:textColor="?colorOnPrimary"
+            android:textSize="14sp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -60,8 +60,8 @@
             android:layout_marginTop="16dp">
 
             <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/baseline_star_24" />
 
             <TextView
@@ -70,8 +70,8 @@
                 android:layout_height="wrap_content"
                 android:text="9.5"
                 android:layout_gravity="center_vertical"
-                android:textColor="@color/white"
-                android:textSize="13sp"
+                android:textSize="14sp"
+                android:textColor="?colorOnPrimary"
                 android:layout_marginLeft="4dp"/>
 
         </LinearLayout>

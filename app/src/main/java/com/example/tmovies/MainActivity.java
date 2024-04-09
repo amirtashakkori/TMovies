@@ -10,8 +10,6 @@ import android.widget.FrameLayout;
 
 import com.example.tmovies.Fragment.GenreFragment;
 import com.example.tmovies.Fragment.MovieFragment;
-import com.example.tmovies.Fragment.ProfileFragment;
-import com.example.tmovies.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -40,15 +38,9 @@ public class MainActivity extends AppCompatActivity {
                 transaction = getSupportFragmentManager().beginTransaction();
                 if (item.getItemId() == R.id.movieList){
                     transaction.replace(R.id.fragment_container , movieFragment);
-                    transaction.addToBackStack("1");
                 }
                 else if (item.getItemId() == R.id.genreList){
                     transaction.replace(R.id.fragment_container , new GenreFragment());
-                    transaction.addToBackStack("1");
-                }
-                else if (item.getItemId() == R.id.profile) {
-                    transaction.replace(R.id.fragment_container , new ProfileFragment());
-                    transaction.addToBackStack("1");
                 }
                 transaction.commit();
                 return true;

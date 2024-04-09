@@ -6,5 +6,10 @@
     <color name="lowOpacity">#26DDDDDD</color>
     <color name="highOpacity">#4DCCCCCC</color>
 
+    <color name="gray">#E3E3E3</color>
+    <color name="dModeGray">#808080</color>
+    <color name="darkGray">#333333</color>
+
     <color name="yellow">#FFC312</color>
+    <color name="darkYellow">#FFC312</color>
 </resources>

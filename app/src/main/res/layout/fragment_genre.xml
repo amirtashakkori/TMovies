@@ -1,37 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="24dp"
-    android:fillViewport="true"
     tools:context=".Fragment.GenreFragment">
 
     <LinearLayout
+        android:id="@+id/anim_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginBottom="72dp">
+        android:visibility="visible"
+        android:layout_gravity="center"
+        android:gravity="center">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="What genres are you looking for?"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginRight="16dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:textColor="@color/white"
-            android:lineSpacingExtra="8dp" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/genreRv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="24dp"/>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:tint="?colorOnSurface"
+            app:lottie_rawRes="@raw/loading_anim"
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="72dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What genres are you looking for?"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="?colorOnPrimary"
+                android:layout_marginRight="16dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:lineSpacingExtra="8dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/genreRv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:nestedScrollingEnabled="false"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

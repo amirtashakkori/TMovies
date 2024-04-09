@@ -2,5 +2,4 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/movieList" android:icon="@drawable/baseline_movie_24" android:title="Movies"/>
     <item android:id="@+id/genreList" android:icon="@drawable/baseline_album_24" android:title="Genres"/>
-    <item android:id="@+id/profile" android:icon="@drawable/baseline_person_24" android:title="Profile" android:iconTint="@color/white"/>
 </menu>

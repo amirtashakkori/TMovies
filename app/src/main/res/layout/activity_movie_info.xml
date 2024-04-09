@@ -7,8 +7,7 @@
     android:paddingTop="24dp"
     android:paddingRight="24dp"
     android:paddingLeft="24dp"
-    tools:context=".MovieInfoActivity"
-    android:background="@drawable/bg_main">
+    tools:context=".MovieInfoActivity">
 
     <LinearLayout
         android:id="@+id/anim_layout"
@@ -21,10 +20,11 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
+            android:tint="?colorOnSurface"
             app:lottie_rawRes="@raw/loading_anim"
             android:layout_gravity="center"/>
 
@@ -42,7 +42,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -52,23 +52,16 @@
                     android:id="@+id/backBtn"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/baseline_arrow_back_ios_new_24"
-                    app:tint="@color/white"/>
+                    app:tint="?colorOnPrimary"
+                    android:src="@drawable/baseline_arrow_back_ios_new_24"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:layout_centerHorizontal="true"/>
 
-
-                <ImageView
-                    android:id="@+id/moreBtn"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/baseline_more_vert_24"
-                    app:tint="@color/white" />
-
-            </LinearLayout>
+            </RelativeLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_img"
@@ -305,13 +298,13 @@ The aging patriarch of an organized crime dynasty transfers control of his cland
                         android:text="ScreenShots"
                         android:textStyle="bold"
                         android:textSize="18sp"
-                        android:textColor="@color/white"/>
+                        android:textColor="?colorSecondary"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/screenShotsRv"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="20dp"
                         android:paddingBottom="20dp"/>
 
                 </LinearLayout>

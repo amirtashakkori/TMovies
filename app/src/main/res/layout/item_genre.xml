@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp"
+    android:layout_weight="1"
     android:background="@drawable/bg_edt_search"
     android:layout_marginRight="4dp"
     android:layout_marginLeft="4dp"
@@ -15,14 +16,15 @@
     <ImageView
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/baseline_album_24"/>
+        android:src="@drawable/baseline_album_24"
+        app:tint="?colorOnPrimary" />
 
     <TextView
         android:id="@+id/genresTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textColor="?colorOnPrimary"
         android:text="Crime"
         android:layout_marginTop="12dp"/>
 

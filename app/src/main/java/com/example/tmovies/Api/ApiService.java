@@ -3,7 +3,6 @@ package com.example.tmovies.Api;
 import android.content.Context;
 
 import com.example.tmovies.Models.Genre;
-import com.example.tmovies.Models.Movie;
 import com.example.tmovies.Models.MovieDatails;
 import com.example.tmovies.Models.MovieList;
 import com.google.gson.JsonObject;
@@ -18,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiService {
 
     RetrofitApiClass retrofitApiClass;
-    public static final String BASE_URL = "https://moviesapi.ir/";
+    public static final String BASE_URL = "https://moviesapi.ir/api/v1/";
 
     public ApiService(Context context){
         Retrofit retrofit = new Retrofit.Builder()
@@ -46,8 +45,9 @@ public class ApiService {
         return retrofitApiClass.getGenreList();
     }
 
-    public Single<MovieList> getGenreMovies(int id){
+    public Single<MovieList> getGenreMovies(long id){
         return retrofitApiClass.getGenreMoviesResponse(id);
     }
+
 
 }

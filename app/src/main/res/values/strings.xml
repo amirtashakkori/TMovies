@@ -7,9 +7,12 @@
     <string name="search">Search</string>
 
     //ProfilePage
+    <string name="profile">Profile</string>
     <string name="wish_list">Wish list</string>
     <string name="watched_list">Watched list</string>
-    <string name="log_out">Log out</string>
+    <string name="logout">Logout</string>
+    <string name="login">Login</string>
+    <string name="guestText">Guest User</string>
 
     //Sign up
     <string name="create_account">Create an account</string>
@@ -17,8 +20,9 @@
     <string name="name_hint">Name</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
+    <string name="repassword_hint">reEnter Password</string>
     <string name="reenter_password_hint">ReEnter password</string>
-    <string name="account_exists">already have an account? </string>
+    <string name="account_exists">Already have an account? </string>
     <string name="account_exists_login">Log in</string>
     <string name="signup_button">Sign up</string>
 
@@ -26,7 +30,7 @@
     <string name="enter_account">Enter to your account</string>
     <string name="enter_account_general_hint">Enter your email and password</string>
     <string name="account_creates">don’t have an account?  </string>
-    <string name="account_exists_signup">Sign up</string>
+    <string name="account_exists_signup">Don\'t have an account</string>
     <string name="login_button">Log in</string>
 
     //MoviePage

@@ -86,6 +86,5 @@ public class MainSliderAdapter extends RecyclerView.Adapter<MainSliderAdapter.it
 
     public interface itemClickListener{
         public void itemClicked(long movie_id);
-        public void itemLongClicked(Movie movie);
     }
 }

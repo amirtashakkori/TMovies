@@ -55,7 +55,7 @@ public class GenresAdapter extends RecyclerView.Adapter<GenresAdapter.item> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.itemClicked(genre.getId());
+                    listener.itemClicked(genre.getName(), genre.getId());
                 }
             });
         }
@@ -63,8 +63,7 @@ public class GenresAdapter extends RecyclerView.Adapter<GenresAdapter.item> {
     }
 
     public interface itemClickListener{
-        public void itemClicked(long genre_id);
-        public void itemLongClicked(Genre genre);
+        public void itemClicked(String genre_name , long genre_id);
     }
 
 }

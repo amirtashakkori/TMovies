@@ -2,7 +2,6 @@ package com.example.tmovies.Api;
 
 
 import com.example.tmovies.Models.Genre;
-import com.example.tmovies.Models.Movie;
 import com.example.tmovies.Models.MovieDatails;
 import com.example.tmovies.Models.MovieList;
 import com.google.gson.JsonObject;
@@ -19,19 +18,19 @@ import retrofit2.http.Query;
 
 public interface RetrofitApiClass {
     @Headers("Cache-Control: max-age=3600")
-    @GET("api/v1/movies")
+    @GET("movies")
     Single<MovieList> getMovieList(@Query("page") int page);
 
-    @GET("api/v1/movies")
+    @GET("movies")
     Single<MovieList> search(@Query("q") String query);
 
-    @GET("api/v1/movies/{movie_id}")
+    @GET("movies/{movie_id}")
     Single<MovieDatails> getMovieDetail(@Path("movie_id") long id);
 
-    @GET("api/v1/genres")
+    @GET("genres")
     Single<List<Genre>> getGenreList();
 
-    @GET("api/v1/genres/{genre_id}/movies")
-    Single<MovieList> getGenreMoviesResponse(@Path("genre_id") int genre_id);
+    @GET("genres/{genre_id}/movies")
+    Single<MovieList> getGenreMoviesResponse(@Path("genre_id") long genre_id);
 
 }

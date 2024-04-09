@@ -51,7 +51,7 @@ public class MovieFragment extends Fragment {
 
     ApiService apiService;
     MoviesAdapter moviesAdapter;
-    Disposable mainSliderDisposable , top20thDisposable;
+    Disposable searchDisposable , mainSliderDisposable , top20thDisposable;
     Handler mainSliderHandler = new Handler();
 
     public void cast(){
@@ -104,11 +104,6 @@ public class MovieFragment extends Fragment {
                         intent.putExtra("movie_id" , movie_id);
                         startActivity(intent);
                     }
-
-                    @Override
-                    public void itemLongClicked(Movie movie) {
-
-                    }
                 }));
                 
                 mainSliderVp.setClipToPadding(false);
@@ -119,7 +114,7 @@ public class MovieFragment extends Fragment {
 
 
                 CompositePageTransformer transformer = new CompositePageTransformer();
-                transformer.addTransformer(new MarginPageTransformer(40));
+//                transformer.addTransformer(new MarginPageTransformer(20));
                 transformer.addTransformer(new ViewPager2.PageTransformer() {
                     @Override
                     public void transformPage(@NonNull View page, float position) {
@@ -156,7 +151,9 @@ public class MovieFragment extends Fragment {
     }
     
     public void setTop20thRv(ApiService apiService){
-        apiService.getMovieList(2).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new SingleObserver<MovieList>() {
+        apiService.getMovieList(2).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<MovieList>() {
             @Override
             public void onSubscribe(Disposable d) {
                 top20thDisposable = d;
@@ -176,10 +173,6 @@ public class MovieFragment extends Fragment {
                         startActivity(intent);
                     }
 
-                    @Override
-                    public void itemLongClicked(Movie movie) {
-
-                    }
                 }, false);
                 top10Rv.setAdapter(adapter);
             }
@@ -222,7 +215,7 @@ public class MovieFragment extends Fragment {
                     apiService.search(q).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new SingleObserver<MovieList>() {
                         @Override
                         public void onSubscribe(Disposable d) {
-
+                            searchDisposable = d;
                         }
 
                         @Override
@@ -235,13 +228,11 @@ public class MovieFragment extends Fragment {
                                 moviesAdapter = new MoviesAdapter(getActivity(), movieList.getData(), new MoviesAdapter.itemClickListener() {
                                     @Override
                                     public void itemClicked(long movie_id) {
-
+                                        Intent intent = new Intent(getActivity() , MovieInfoActivity.class);
+                                        intent.putExtra("movie_id" , movie_id);
+                                        startActivity(intent);
                                     }
 
-                                    @Override
-                                    public void itemLongClicked(Movie movie) {
-
-                                    }
                                 }, true);
                                 searchListRv.setAdapter(moviesAdapter);
                             } else {
@@ -254,13 +245,19 @@ public class MovieFragment extends Fragment {
 
                         @Override
                         public void onError(Throwable e) {
-                            Toast.makeText(getContext(), "" + e, Toast.LENGTH_SHORT).show();
-                            Log.d("searchTAG", "onError: " + e);
+                            Toast.makeText(getActivity(), "An unknown error has occurred!", Toast.LENGTH_SHORT).show();
                         }
                     });
                 } else {
+                    searchListRv.setVisibility(View.GONE);
                     illLayout.setVisibility(View.VISIBLE);
-                    emptyStateTv.setText("عنوان مورد نظر را وارد کنید");
+                    emptyStateTv.setVisibility(View.VISIBLE);
+                    emptyStateTv.setText("Enter the desired title");
+                }
+
+                if (s.toString().equals("")){
+                    illLayout.setVisibility(View.VISIBLE);
+                    emptyStateTv.setText("Enter the desired title");
                 }
             }
 
@@ -281,12 +278,15 @@ public class MovieFragment extends Fragment {
 
     public void onResume() {
         super.onResume();
+
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
                 if (searchEdt.hasFocus()) {
                     searchEdt.clearFocus();
                     searchEdt.setText("");
+                    searchLayout.setVisibility(View.GONE);
+                    mainLayout.setVisibility(View.VISIBLE);
                 } else {
                     // Handle other back button press actions if needed
                     requireActivity().onBackPressed();
@@ -298,6 +298,9 @@ public class MovieFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        if (searchDisposable != null)
+            searchDisposable.dispose();
+
         if (mainSliderDisposable != null)
             mainSliderDisposable.dispose();
 

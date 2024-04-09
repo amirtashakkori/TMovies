@@ -1,59 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".GenreListActivity"
-    android:background="@drawable/bg_main"
     android:fillViewport="true">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/baseline_arrow_back_ios_new_24"
+            app:tint="?colorOnPrimary" />
+
+        <TextView
+            android:id="@+id/genreNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drama"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:textColor="?colorOnPrimary"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_gravity="center_horizontal"/>
+
+
+    </RelativeLayout>
+
     <LinearLayout
+        android:id="@+id/anim_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_gravity="center"
+        android:gravity="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal">
-
-            <ImageView
-                android:id="@+id/backBtn"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/baseline_arrow_back_ios_new_24"
-                app:tint="@color/white"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:text="Drama"
-                android:textSize="18sp"
-                android:textAlignment="center"
-                android:layout_gravity="center_horizontal"/>
-
-
-            <ImageView
-                android:id="@+id/moreBtn"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/baseline_more_vert_24"
-                app:tint="@color/white" />
-
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/genreRv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="24dp"/>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:tint="?colorOnSurface"
+            app:lottie_rawRes="@raw/loading_anim"
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/listLay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_marginTop="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="64dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/genreRv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -24,10 +24,10 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="DarkKnight"
-        android:textColor="@color/white"
         android:textSize="15sp"
         android:maxLines="2"
         android:ellipsize="end"
+        android:textColor="?colorOnPrimary"
         android:lineSpacingExtra="4dp"
         android:textAlignment="center"
         android:fontFamily="@font/montserrat_bold"
@@ -39,8 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="(2006)"
-        android:textColor="@color/white"
-        android:textSize="13sp"
+        android:textColor="?colorOnPrimary"
+        android:textSize="14sp"
         android:layout_marginTop="4dp"
         android:layout_gravity="center_horizontal"/>
 
