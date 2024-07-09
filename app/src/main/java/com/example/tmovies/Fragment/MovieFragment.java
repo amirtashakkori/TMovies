@@ -180,6 +180,7 @@ public class MovieFragment extends Fragment {
             @Override
             public void onError(Throwable e) {
                 Toast.makeText(getActivity(), "An unknown error has occurred!", Toast.LENGTH_SHORT).show();
+                Log.i("errorMain", "onError: " + e);
             }
         });
 
