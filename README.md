@@ -14,3 +14,4 @@ Project Features:
 - Using spinners to fetch and display responses based on spinner values.
 
 The application supports both light and dark mode.
+Note: This project is solely for displaying and listing top IMDb movies and does not have the capability to play or download movies.
