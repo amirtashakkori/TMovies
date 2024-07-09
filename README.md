@@ -10,7 +10,7 @@ Project Features:
 
 - Sending requests to the server to fetch and display information.
 - Using fragments to separate the list of movies and genres.
-- Implementing ViewPager and TabLayout to create a header list for movie pages.
+- Implementing ViewPager and TabLayout to create a header list for movie page.
 - Using spinners to fetch and display responses based on spinner values.
 
 The application supports both light and dark mode.
